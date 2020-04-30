@@ -363,11 +363,11 @@ class Google:
         payload['Passwd'] = self.config.password
 
         # Get all captcha challenge tokens and urls
-        captcha_container = response_page.find('div', {'id':'identifier-captcha'})
-        captcha_logintoken = captcha_container.find('input', {'id':'identifier-token'}).get('value')
-        captcha_img = captcha_container.find('div', {'class':'captcha-img'})
+        captcha_container = response_page.find('div', {'id': 'identifier-captcha'})
+        captcha_logintoken = captcha_container.find('input', {'id': 'identifier-token'}).get('value')
+        captcha_img = captcha_container.find('div', {'class': 'captcha-img'})
         captcha_url = "https://accounts.google.com" + captcha_img.find('img').get('src')
-        captcha_logintoken_audio = str()
+        captcha_logintoken_audio = ''
 
         open_image = True
 
