@@ -276,7 +276,7 @@ class Google:
             # Were there any errors logging in? Could be invalid username or password
             # There could also sometimes be a Captcha, which means Google thinks you,
             # or someone using the same outbound IP address as you, is a bot.
-            if error is not None:
+            if error is not None and cap is None:
                 raise ExpectedGoogleException('Invalid username or password')
 
             self.check_extra_step(response_page)
